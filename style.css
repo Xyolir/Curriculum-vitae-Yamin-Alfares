@@ -1,0 +1,203 @@
+/* RESET DE BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #fff; /* texte blanc */
+}
+
+/* STYLE GLOBAL */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #000;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(135deg, #000, #222);
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #333;
+}
+
+header h1 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* NAVIGATION */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+nav ul li a {
+  color: #fff;
+  background: linear-gradient(135deg, #111, #333);
+  padding: 8px 16px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+  background: linear-gradient(135deg, #444, #222);
+  color: #d6821a;
+}
+
+/* SECTIONS */
+section {
+  position: relative;
+  padding: 80px 20px;
+  max-width: 100%;
+  margin: 30px auto;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* parallax */
+  border-radius: 20px;
+  overflow: hidden;
+
+  scroll-margin-top: 100px; /* titre visible sous header */
+}
+
+/* Overlay sombre pour le texte */
+section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 0;
+  pointer-events: none; /* hover n’affecte pas l’image */
+}
+
+section h2, section p, section ul {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+section h2 {
+  margin-bottom: 15px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+section p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+section ul {
+  list-style: disc;
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: left;
+  padding-left: 20px;
+}
+
+/* IMAGES SPÉCIFIQUES */
+#Accueil { background-image: url('images/accueil.jpg'); }
+#Informations { background-image: url('images/paris.jpg'); }
+#Diplomes { background-image: url('images/montecarlo.jpg'); }
+#Competences { background-image: url('images/londres.jpg'); }
+#Langues { background-image: url('images/singapour.jpg'); }
+#Activites { background-image: url('images/tokyo.jpg'); }
+
+/* EFFET DE DÉFILEMENT FLUIDE */
+html {
+  scroll-behavior: smooth;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  section h2 { font-size: 1.5rem; }
+  section p, section ul { font-size: 1rem; }
+  nav ul { flex-direction: column; gap: 10px; }
+}
+
+#toggle-music {
+  margin-top: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: 2px solid #fff;
+  color: #fff;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#toggle-music:hover {
+  background: rgba(255,255,255,0.3);
+  transform: scale(1.1);
+}
+
+#music-icon {
+  pointer-events: none;
+}
+
+/* La section prend toute la hauteur de l’écran */
+#Accueil {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* La vidéo en fond */
+#video-accueil {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%; /* un peu plus grand pour l'effet parallax */
+  object-fit: cover;
+  z-index: -1;
+  transform: translateY(-10%); /* décalage initial pour l'effet */
+}
+
+/* L’effet parallax au scroll */
+@media (min-width: 768px) {
+  #video-accueil {
+    will-change: transform;
+  }
+}
+
+/* Contenu par-dessus */
+.overlay-contenu {
+  position: relative;
+  color: white;
+  text-align: center;
+  z-index: 2;
+  padding: 20px;
+}
+
+/* Bouton */
+#toggle-sound {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-top: 20px;
+}
