@@ -12,8 +12,3 @@ toggleBtn.addEventListener('click', () => {
   if (!video.muted) video.play(); // relance la vidéo pour certains navigateurs
 });
 
-// Si tu veux garder le défilement de la vidéo désactivé pour Accueil, supprime cette partie
-// window.addEventListener('scroll', () => {
-//   const scrollY = window.scrollY;
-//   video.style.transform = `translateY(${scrollY * -0.2}px)`; 
-// });
