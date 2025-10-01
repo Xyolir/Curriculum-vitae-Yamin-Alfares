@@ -42,11 +42,6 @@ header h1 {
   text-align: center;
 }
 
-header h1 {
-  flex: 2;
-  text-align: center;
-}
-
 /* NAVIGATION */
 nav ul {
   list-style: none;
