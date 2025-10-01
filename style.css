@@ -25,12 +25,32 @@ header {
   border-bottom: 1px solid #333;
 }
 
-header h1 {
-  margin-bottom: 10px;
-  font-size: 2rem;
-  font-weight: bold;
-  text-transform: uppercase;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px;
 }
+
+.header-left, .header-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+header img {
+  border-radius: 50%;
+  max-width: 100px;
+  height: auto;
+}
+
+
+header h1 {
+  flex: 2;
+  text-align: center;
+}
+
 
 /* NAVIGATION */
 nav ul {
@@ -115,7 +135,7 @@ section ul {
 #Diplomes { background-image: url('images/montecarlo.jpg'); }
 #Competences { background-image: url('images/londres.jpg'); }
 #Langues { background-image: url('images/singapour.jpg'); }
-#Activites { background-image: url('images/tokyo.jpg'); }
+#Activites { background-image: url('images/Saint-Tropez.jpg'); }
 
 /* EFFET DE DÉFILEMENT FLUIDE */
 html {

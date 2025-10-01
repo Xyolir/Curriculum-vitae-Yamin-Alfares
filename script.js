@@ -3,24 +3,17 @@ const toggleBtn = document.getElementById('toggle-sound');
 const icon = document.getElementById('sound-icon');
 
 // L'état du son
-let muted = true; // de base muet (obligatoire pour autoplay)
+let muted = true; // de base muet pour autoplay
 
+// S'assurer que la vidéo peut être jouée avec son après interaction
 toggleBtn.addEventListener('click', () => {
-  if (muted) {
-    // Activer le son
-    video.muted = false;
-    video.volume = 1; // plein volume
-    icon.textContent = '🔊'; // icône son
-    muted = false;
-  } else {
-    // Couper le son
-    video.muted = true;
-    icon.textContent = '🔇'; // icône muet
-    muted = true;
-  }
-});
-window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY;
-  video.style.transform = `translateY(${scrollY * -0.2}px)`; 
+  video.muted = !video.muted;
+  icon.textContent = video.muted ? '🔇' : '🔊';
+  if (!video.muted) video.play(); // relance la vidéo pour certains navigateurs
 });
 
+// Si tu veux garder le défilement de la vidéo désactivé pour Accueil, supprime cette partie
+// window.addEventListener('scroll', () => {
+//   const scrollY = window.scrollY;
+//   video.style.transform = `translateY(${scrollY * -0.2}px)`; 
+// });
