@@ -1,63 +1,91 @@
-/* RESET DE BASE */
+/* ================= RESET DE BASE ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #fff; /* texte blanc */
+  color: #fff;
 }
 
-/* STYLE GLOBAL */
+/* ================= STYLE GLOBAL ================= */
 body {
   font-family: "Segoe UI", Arial, sans-serif;
   line-height: 1.6;
   background-color: #000;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 header {
   background: linear-gradient(135deg, #000, #222);
-  color: #fff;
-  padding: 20px 0;
-  text-align: center;
+  border-bottom: 1px solid #333;
   position: sticky;
   top: 0;
   z-index: 10;
-  border-bottom: 1px solid #333;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 150px; /* hauteur fixe */
+  padding: 10px 3vw;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 20px;
-}
-.header-left, .header-right {
-  flex: 1;
+/* Ligne haute : photo + titre + logo */
+.header-top {
   display: flex;
   justify-content: center;
-}
-header h1 {
-  flex: 2;
-  text-align: center;
+  align-items: center;
+  gap: 2vw;
+  width: 100%;
 }
 
-/* NAVIGATION */
+/* Images rondes */
+.header-top img {
+  height: 80px; 
+  width: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  transition: transform 0.3s ease; /* effet hover fluide */
+}
+
+.header-top img:hover {
+  transform: scale(1.1); /* grossissement au survol */
+}
+
+/* Titre */
+.header-top h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* ================= NAVIGATION ================= */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px; /* espace entre header-top et nav */
+}
+
 nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
+  gap: 1rem;
   flex-wrap: wrap;
-  gap: 15px;
 }
 
 nav ul li a {
-  color: #fff;
-  background: linear-gradient(135deg, #111, #333);
-  padding: 8px 16px;
-  border-radius: 30px;
   text-decoration: none;
   font-weight: 500;
+  color: #fff;
+  background: linear-gradient(135deg, #111, #333);
+  padding: 0.4em 1em;
+  border-radius: 30px;
+  font-size: 1rem;
   transition: all 0.3s ease;
 }
 
@@ -66,7 +94,7 @@ nav ul li a:hover {
   color: #d6821a;
 }
 
-/* SECTIONS */
+/* ================= SECTIONS ================= */
 section {
   position: relative;
   padding: 80px 20px;
@@ -78,11 +106,9 @@ section {
   background-attachment: fixed; /* parallax */
   border-radius: 20px;
   overflow: hidden;
-
-  scroll-margin-top: 100px; /* titre visible sous header */
 }
 
-/* Overlay sombre pour le texte */
+/* Overlay sombre */
 section::before {
   content: "";
   position: absolute;
@@ -90,7 +116,7 @@ section::before {
   width: 100%; height: 100%;
   background: rgba(0,0,0,0.6);
   z-index: 0;
-  pointer-events: none; /* hover n’affecte pas l’image */
+  pointer-events: none;
 }
 
 section h2, section p, section ul {
@@ -119,7 +145,7 @@ section ul {
   padding-left: 20px;
 }
 
-/* IMAGES SPÉCIFIQUES */
+/* ================= IMAGES DE FOND ================= */
 #Accueil { background-image: url('images/accueil.jpg'); }
 #Informations { background-image: url('images/paris.jpg'); }
 #Diplomes { background-image: url('images/montecarlo.jpg'); }
@@ -127,18 +153,10 @@ section ul {
 #Langues { background-image: url('images/singapour.jpg'); }
 #Activites { background-image: url('images/Saint-Tropez.jpg'); }
 
-/* EFFET DE DÉFILEMENT FLUIDE */
-html {
-  scroll-behavior: smooth;
-}
+/* ================= SCROLL FLUIDE ================= */
+html { scroll-behavior: smooth; }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  section h2 { font-size: 1.5rem; }
-  section p, section ul { font-size: 1rem; }
-  nav ul { flex-direction: column; gap: 10px; }
-}
-
+/* ================= BOUTON MUSIQUE ================= */
 #toggle-music {
   margin-top: 20px;
   width: 60px;
@@ -160,40 +178,31 @@ html {
   transform: scale(1.1);
 }
 
-#music-icon {
-  pointer-events: none;
-}
+#music-icon { pointer-events: none; }
 
-/* La section prend toute la hauteur de l’écran */
+/* ================= SECTION ACCUEIL ================= */
 #Accueil {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
+  padding: 0; /* pas de padding en haut */
+  height: calc(100vh - 150px); /* plein écran moins la hauteur du header */
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center; /* centre verticalement */
+  justify-content: center; /* centre horizontalement */
+  position: relative;
+  overflow: hidden;
 }
 
-/* La vidéo en fond */
+
 #video-accueil {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 120%; /* un peu plus grand pour l'effet parallax */
+  height: 120%;
   object-fit: cover;
   z-index: -1;
-  transform: translateY(-10%); /* décalage initial pour l'effet */
+  transform: translateY(-10%);
 }
 
-/* L’effet parallax au scroll */
-@media (min-width: 768px) {
-  #video-accueil {
-    will-change: transform;
-  }
-}
-
-/* Contenu par-dessus */
 .overlay-contenu {
   position: relative;
   color: white;
@@ -202,7 +211,6 @@ html {
   padding: 20px;
 }
 
-/* Bouton */
 #toggle-sound {
   background: transparent;
   border: none;
@@ -210,4 +218,31 @@ html {
   font-size: 2rem;
   cursor: pointer;
   margin-top: 20px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  header {
+    height: auto;
+    padding: 15px 10px;
+  }
+
+  .header-top {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .header-top img {
+    height: 60px;
+    width: 60px;
+  }
+
+  .header-top h1 {
+    font-size: 1.5rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
