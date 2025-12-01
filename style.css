@@ -148,10 +148,10 @@ section ul {
 /* ================= IMAGES DE FOND ================= */
 #Accueil { background-image: url('images/accueil.jpg'); }
 #Informations { background-image: url('images/paris.jpg'); }
-#Diplomes { background-image: url('images/montecarlo.jpg'); }
-#Competences { background-image: url('images/londres.jpg'); }
-#Langues { background-image: url('images/singapour.jpg'); }
-#Activites { background-image: url('images/Saint-Tropez.jpg'); }
+#Formations { background-image: url('images/montecarlo.jpg'); }
+#Experiences { background-image: url('images/londres.jpg'); }
+#Compétences { background-image: url('images/singapour.jpg'); }
+#Centresd’intérêt { background-image: url('images/Saint-Tropez.jpg'); }
 
 /* ================= SCROLL FLUIDE ================= */
 html { scroll-behavior: smooth; }
