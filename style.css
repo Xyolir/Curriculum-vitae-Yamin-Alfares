@@ -147,11 +147,12 @@ section ul {
 
 /* ================= IMAGES DE FOND ================= */
 #Accueil { background-image: url('images/accueil.jpg'); }
-#Informations { background-image: url('images/paris.jpg'); }
-#Formations { background-image: url('images/montecarlo.jpg'); }
-#Experiences { background-image: url('images/londres.jpg'); }
-#Compétences { background-image: url('images/singapour.jpg'); }
-#Centresd’intérêts { background-image: url('images/Saint-Tropez.jpg'); }
+#Formations { background-image: url('images/paris.jpg'); }
+#Experiences { background-image: url('images/montecarlo.jpg'); }
+#Compétences { background-image: url('images/londres.jpg'); }
+#Centresd’intérêts { background-image: url('images/singapour.jpg'); }
+#Informations { background-image: url('images/Saint-Tropez.jpg'); }
+
 
 /* ================= SCROLL FLUIDE ================= */
 html { scroll-behavior: smooth; }
